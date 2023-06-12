@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">JogoDaVelha</string>
+    <string name="titulo">JOGO DA FORCA</string>
+    <string name="tvApelido">Apelido</string>
+    <string name="ptApelido"> </string>
+    <string name="avatar">AVATAR</string>
+    <string name="jogar">JOGAR</string>
 </resources>

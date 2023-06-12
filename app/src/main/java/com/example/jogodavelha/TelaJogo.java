@@ -2,15 +2,13 @@ package com.example.jogodavelha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class TelaJogo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tela_jogo);
     }
-
 }
