@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_restart"
+        android:title="Reiniciar Partida" />
+    <item
+        android:id="@+id/menu_new_game"
+        android:title="Iniciar Nova Partida" />
+    <item
+        android:id="@+id/menu_exit"
+        android:title="Sair do Jogo" />
+</menu>
