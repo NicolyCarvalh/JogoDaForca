@@ -3,6 +3,7 @@ package com.example.jogodavelha;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,9 +25,14 @@ public class TelaJogo extends AppCompatActivity {
         String valorRecebido = i1.getStringExtra("nick");
         tvApelido.setText(valorRecebido);
 
-        //Intent i2 = getIntent();
-        //int imagem = i2.getIntExtra("imagem", 0);
-        //ivAvatar.setImageResource(imagem);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            // Extraia a imagem do Bundle
+            Bitmap selectedImageBitmap = bundle.getParcelable("selectedImage");
 
+            // Exiba a imagem em um ImageView
+            ImageView imageView = findViewById(R.id.ivAvatar);
+            imageView.setImageBitmap(selectedImageBitmap);
+        }
     }
 }
