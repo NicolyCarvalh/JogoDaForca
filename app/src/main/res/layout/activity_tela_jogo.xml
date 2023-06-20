@@ -4,46 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TelaJogo">
 
-    <TextView
-        android:id="@+id/tvApelido"
-        android:layout_width="76dp"
-        android:layout_height="33dp"
-        android:fontFamily="@font/amaranth"
-        android:shadowColor="#3B406C"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1"
-        android:text="nick"
-        android:textColor="#292E8E"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="53dp" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="img"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="53dp" />
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="216dp"
+            android:layout_height="219dp"
+            android:visibility="visible"
+            tools:srcCompat="@drawable/touro" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="time"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="107dp" />
+        <TextView
+            android:id="@+id/tvApelido"
+            android:layout_width="76dp"
+            android:layout_height="33dp"
+            android:fontFamily="@font/amaranth"
+            android:shadowColor="#3B406C"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="nick"
+            android:textColor="#292E8E"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="53dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="53dp" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+            tools:layout_editor_absoluteX="322dp"
+            tools:layout_editor_absoluteY="53dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="107dp" />
+
+    </TableRow>
 
 </LinearLayout>

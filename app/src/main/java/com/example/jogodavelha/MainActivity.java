@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         ibCoala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, TelaJogo.class);
+                intent.putExtra("imagem", R.drawable.coala);
             }
         });
 
@@ -65,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, TelaJogo.class);
                 intent.putExtra("nick", nick);
-
                 startActivity(intent);
+
+
             }
         });
     }
