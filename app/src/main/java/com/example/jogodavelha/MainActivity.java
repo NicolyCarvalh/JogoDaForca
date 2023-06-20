@@ -3,16 +3,14 @@ package com.example.jogodavelha;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     private TextView tvJogo, tvNick, tvAvatar;
     private EditText etNick;
     private Button btJogar;
@@ -36,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
         ibCoala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i2 = new Intent(MainActivity.this, TelaJogo.class);
-                i2.putExtra("imagem", R.drawable.coala);
+                Intent intent = new Intent(MainActivity.this, TelaJogo.class);
+                intent.putExtra("imagem", R.drawable.coala);
             }
         });
-
 
         ibFlamingo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, TelaJogo.class);
                 intent.putExtra("nick", nick);
                 startActivity(intent);
+
+
             }
         });
     }
