@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -53,6 +54,7 @@ public class TelaJogo extends AppCompatActivity {
         //ivAvatar.setImageResource(imagem);
 
         listaPalavras = criarListaPalavras();
+
         palavraSorteada = sortearPalavraAleatoria();
 
         tvPalavraSorteada.setText("Palavra sorteada: " + palavraSorteada);
@@ -96,9 +98,6 @@ public class TelaJogo extends AppCompatActivity {
         String tempoFormatado = String.format(Locale.getDefault(), "%02d:%02d", minutos, segundos);
         tvTimer.setText(tempoFormatado);
     }
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -125,9 +124,9 @@ public class TelaJogo extends AppCompatActivity {
     private List<String> criarListaPalavras() {
         List<String> palavras = new ArrayList<>();
         try {
-            AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("palavras.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            FileInputStream fileInputStream = openFileInput("palavras.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader br = new BufferedReader(inputStreamReader);
 
             String linha;
             while ((linha = br.readLine()) != null) {

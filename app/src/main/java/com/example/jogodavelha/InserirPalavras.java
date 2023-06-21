@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class InserirPalavras extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class InserirPalavras extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String novaPalavra = etNovaPalavra.getText().toString();
-
+                //palavrasDoBanco();
                 addNovaPalavra(novaPalavra);
 
                 etNovaPalavra.setText("");
@@ -42,13 +44,12 @@ public class InserirPalavras extends AppCompatActivity {
             File file = new File(getFilesDir(), "palavras.txt");
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(novaPalavra);
             bufferedWriter.newLine();
+            bufferedWriter.write(novaPalavra);
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 }
