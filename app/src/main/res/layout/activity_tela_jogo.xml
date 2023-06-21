@@ -35,6 +35,18 @@
             tools:layout_editor_absoluteX="159dp"
             tools:layout_editor_absoluteY="107dp" />
 
+        <Button
+            android:id="@+id/btTeste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="teste" />
+
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timer" />
+
     </TableRow>
 
 </LinearLayout>
