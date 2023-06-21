@@ -5,4 +5,14 @@
     <string name="ptApelido"> </string>
     <string name="avatar">AVATAR</string>
     <string name="jogar">JOGAR</string>
+    <string name="adicionar">ADICIONAR</string>
+    <string name="palavraForca"></string>
+    <string name="timer">TIMER</string>
+    <string name="tituloNovaPalavra">NOVA PALAVRA</string>
+    <string name="tituloNovaPalavra2">INSERIR</string>
+    <string name="novaPalavra"></string>
+    <string name="salvar">SALVAR</string>
+    <string name="palavra">PALAVRA:</string>
+
+
 </resources>

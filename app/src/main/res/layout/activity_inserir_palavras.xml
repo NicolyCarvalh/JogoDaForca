@@ -1,26 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etNovaPalavra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Nova Palavra"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="219dp" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/btInserir"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="175dp"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/tituloNovaPalavra2"
+            android:textColor="#D31414"
+            android:textSize="34dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="@font/carter_one"
+            android:text="@string/tituloNovaPalavra"
+            android:textColor="#D31414"
+            android:textSize="34sp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="INSERIR"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="357dp" />
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="80dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/palavra" />
+
+        <EditText
+            android:id="@+id/etNovaPalavra"
+            android:layout_width="164dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/novaPalavra"
+            tools:layout_editor_absoluteX="102dp"
+            tools:layout_editor_absoluteY="219dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btInserir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="90dp"
+            android:backgroundTint="#D31414"
+            android:fontFamily="@font/allerta"
+            android:text="@string/salvar"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="@android:dimen/thumbnail_height"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="357dp" />
+    </TableRow>
 
 </LinearLayout>
