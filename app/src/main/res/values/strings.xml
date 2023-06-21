@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JogoDaVelha</string>
+    <string name="app_name">JogoDaForca</string>
     <string name="titulo">JOGO DA FORCA</string>
     <string name="tvApelido">Apelido</string>
     <string name="ptApelido"> </string>
