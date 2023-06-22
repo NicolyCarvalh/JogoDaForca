@@ -140,38 +140,43 @@
             android:layout_marginTop="273.5dp"
             app:srcCompat="@drawable/pee1" />
 
+        <EditText
+            android:id="@+id/etLetrasIncorretas"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/tvResultado1"
+            android:layout_width="195dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-180dp"
+            android:layout_marginTop="300dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/etLetrasIncorretas"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
         <TextView
-            android:id="@+id/tvLetrasIncorretas"
+            android:id="@+id/tvLetrasCorretas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/erradas" />
+            android:layout_marginLeft="80dp"
+            android:text="Adicionar Letra:" />
 
         <EditText
             android:id="@+id/etLetra"
-            android:layout_width="wrap_content"
+            android:layout_width="89dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/btVerificar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="verificarLetra"
-            android:text="Button" />
 
     </TableRow>
 
@@ -179,21 +184,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/tvLetrasCorretas"
+        <Button
+            android:id="@+id/btVerificar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="Palavra:" />
-
-        <EditText
-            android:id="@+id/tvResultado1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="20dp"
+            android:onClick="verificarLetra"
+            android:text="LETRA" />
     </TableRow>
 
 </LinearLayout>

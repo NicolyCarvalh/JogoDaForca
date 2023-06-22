@@ -73,10 +73,12 @@ public class TelaJogo extends AppCompatActivity {
             }
         });
 
-        File file = new File(getFilesDir(), "palavras.txt");
+       // File file = new File(getFilesDir(), "palavras.txt");
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            FileInputStream fileInputStream = openFileInput("palavras.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
             List<String> palavras = new ArrayList<>();
 
             String linha;
@@ -109,7 +111,7 @@ public class TelaJogo extends AppCompatActivity {
                     return;
                 }
 
-                if (tvLetrasCorretas.getText().toString().contains(letraInserida)
+                if (tvResultado1.getText().toString().contains(letraInserida)
                         || etLetrasIncorretas.getText().toString().contains(letraInserida)) {
                     Toast.makeText(TelaJogo.this, "Letra já utilizada.", Toast.LENGTH_SHORT).show();
                     return;
@@ -129,15 +131,17 @@ public class TelaJogo extends AppCompatActivity {
 
                 if (letraEncontrada) {
                     tvResultado1.setText(resultado.toString());
-                    tvResultado1.append(letraInserida);
-                    Toast.makeText(TelaJogo.this, "Letra correta!", Toast.LENGTH_SHORT).show();
                 } else {
                     etLetrasIncorretas.append(letraInserida);
+                }
+
+                if (resultado.toString().equalsIgnoreCase(palavraAleatoria)) {
+                    Toast.makeText(TelaJogo.this, "Letra correta!", Toast.LENGTH_SHORT).show();
+                } else {
                     Toast.makeText(TelaJogo.this, "Letra incorreta!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
         Handler handler = new Handler();
         Runnable atualizarTempoRunnable = new Runnable() {
