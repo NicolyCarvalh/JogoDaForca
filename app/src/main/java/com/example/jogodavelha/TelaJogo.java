@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,10 +31,13 @@ import java.util.Random;
 public class TelaJogo extends AppCompatActivity {
     private static final long TEMPO_TOTAL_MS = 3 * 60 * 1000;
     private long tempoRestanteMs = TEMPO_TOTAL_MS;
+    private int quantidadeDeErros = 0;
     private Button btTeste;
-    private TextView tvApelido, tvPalavraSorteada, tvTimer;
+    private TextView tvApelido, tvPalavraSorteada, etLetrasCorretas, tvTimer;
     private ImageView ivAvatar;
+    private EditText etLetra;
     private List<String> listaPalavras;
+    private List<String> letrasDigitadas;
     private String palavraSorteada;
 
     @Override
@@ -40,10 +45,13 @@ public class TelaJogo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_jogo);
 
+        letrasDigitadas = new ArrayList<>();
+        quantidadeDeErros = 0;
         tvApelido = findViewById(R.id.tvApelido);
         tvPalavraSorteada = findViewById(R.id.tvPalavraSorteada);
         btTeste = findViewById(R.id.btTeste);
         tvTimer = findViewById(R.id.tvTimer);
+        etLetrasCorretas = findViewById(R.id.etLetrasCorretas);
 
         Intent i1 = getIntent();
         String valorRecebido = i1.getStringExtra("nick");
@@ -58,6 +66,7 @@ public class TelaJogo extends AppCompatActivity {
         palavraSorteada = sortearPalavraAleatoria();
 
         tvPalavraSorteada.setText("Palavra sorteada: " + palavraSorteada);
+        etLetra = findViewById(R.id.etLetra);
 
         btTeste.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +133,11 @@ public class TelaJogo extends AppCompatActivity {
     private List<String> criarListaPalavras() {
         List<String> palavras = new ArrayList<>();
         try {
+            // create file not exist
+            File file = new File(getFilesDir(), "palavras.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             FileInputStream fileInputStream = openFileInput("palavras.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader br = new BufferedReader(inputStreamReader);
@@ -140,8 +154,82 @@ public class TelaJogo extends AppCompatActivity {
     }
     private String sortearPalavraAleatoria() {
         Random random = new Random();
+        if (listaPalavras.isEmpty()) {
+            return "teste";
+        }
         int index = random.nextInt(listaPalavras.size());
         return listaPalavras.get(index);
+    }
+
+    private String construirPalavra() {
+        String palavra = "";
+        for (int i = 0; i < palavraSorteada.length(); i++) {
+            String letra = palavraSorteada.substring(i, i + 1);
+            if (letrasDigitadas.contains(letra)) {
+                palavra += letra;
+            } else {
+                palavra += "_";
+            }
+        }
+        return palavra;
+    }
+
+    private void verificarDerrota() {
+        quantidadeDeErros++;
+        Log.d("teste", "Quantidade de erros: " + quantidadeDeErros);
+        if (quantidadeDeErros == 1) {
+            ImageView ivForca = findViewById(R.id.imageView3);
+            ivForca.setAlpha(1f);
+        } else if (quantidadeDeErros == 2) {
+            ImageView ivForca = findViewById(R.id.imageView4);
+            ivForca.setAlpha(1f);
+        } else if (quantidadeDeErros == 3) {
+            ImageView ivForca = findViewById(R.id.imageView5);
+            ivForca.setAlpha(1f);
+        } else if (quantidadeDeErros == 4) {
+            ImageView ivForca = findViewById(R.id.imageView10);
+            ivForca.setAlpha(1f);
+        } else if (quantidadeDeErros == 5) {
+            ImageView ivForca = findViewById(R.id.imageView7);
+            ivForca.setAlpha(1f);
+        } else
+        if (quantidadeDeErros == 6) {
+            Toast.makeText(this, "Você perdeu", Toast.LENGTH_SHORT).show();
+            // TODO: mostra activity de derrota
+            return;
+        }
+    }
+
+    private void verificarPalavraCompleta() {
+        String palavra = construirPalavra();
+        if (palavra.equals(palavraSorteada)) {
+            Toast.makeText(this, "Palavra completa", Toast.LENGTH_SHORT).show();
+            // TODO: mostra activity de vitória
+        }
+    }
+
+    private void atualizarPalavra() {
+        String palavra = construirPalavra();
+        etLetrasCorretas.setText(palavra);
+    }
+
+    public void verificarLetra(View view) {
+        String letra = etLetra.getText().toString();
+        etLetra.setText("");
+        Log.d("TelaJogo", "Letra clicada: " + letra);
+        if (letrasDigitadas.contains(letra)) {
+            Toast.makeText(this, "Letra já digitada", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (palavraSorteada.contains(letra)) {
+            letrasDigitadas.add(letra);
+            atualizarPalavra();
+            verificarPalavraCompleta();
+            Toast.makeText(this, "Letra encontrada", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Letra não encontrada", Toast.LENGTH_SHORT).show();
+            verificarDerrota();
+        }
     }
 
 }
