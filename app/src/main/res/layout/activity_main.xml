@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/carter_one"
             android:shadowColor="#A35B5B"
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="153dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/carter_one"
             android:shadowColor="#A35B5B"
             android:shadowDx="1"
@@ -87,16 +87,22 @@
 
         <ImageButton
             android:id="@+id/ibCoala"
-            android:layout_width="188dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="17dp"
+            android:layout_width="178dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAlignBottom="false"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/coala" />
 
         <ImageButton
             android:id="@+id/ibFlamingo"
-            android:layout_width="173dp"
-            android:layout_height="124dp"
-            android:layout_marginLeft="17dp"
+            android:layout_width="178dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/flamingo" />
 
     </TableRow>
@@ -107,15 +113,19 @@
 
         <ImageButton
             android:id="@+id/ibTouro"
-            android:layout_width="211dp"
-            android:layout_height="140dp"
+            android:layout_width="178dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/touro" />
 
         <ImageButton
             android:id="@+id/ibCachorro"
-            android:layout_width="188dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="17dp"
+            android:layout_width="178dp"
+            android:layout_height="150dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/cachorro" />
 
     </TableRow>
@@ -129,7 +139,7 @@
             android:layout_width="112dp"
             android:layout_height="63dp"
             android:layout_marginLeft="150dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="40dp"
             android:backgroundTint="#D31414"
             android:fontFamily="@font/allerta"
             android:shadowColor="#A35B5B"

@@ -2,97 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/ivAvatar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".TelaJogo">
 
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="10"
-        android:rowCount="6">
-
-        <Button
-            android:id="@+id/buttonQ"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:text="Q" />
-
-        <Button
-            android:id="@+id/buttonW"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="W" />
-
-        <Button
-            android:id="@+id/buttonE"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="E" />
-
-        <Button
-            android:id="@+id/buttonR"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="R" />
-
-        <Button
-            android:id="@+id/buttonT"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="T" />
-
-        <Button
-            android:id="@+id/buttonY"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="Y" />
-
-        <Button
-            android:id="@+id/buttonU"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:text="U" />
-
-        <Button
-            android:id="@+id/buttonI"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="I" />
-
-        <Button
-            android:id="@+id/buttonO"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:text="O" />
-
-        <Button
-            android:id="@+id/buttonP"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:text="P" />
-
-
-    </GridLayout>
-
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="96dp"
+            android:id="@+id/imageView"
+            android:layout_width="102dp"
             android:layout_height="94dp"
-            android:visibility="visible"
+            android:layout_marginLeft="20dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvApelido"
-            android:layout_width="49dp"
-            android:layout_height="wrap_content"
+            android:layout_width="76dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="22dp"
             android:fontFamily="@font/amaranth"
             android:shadowColor="#3B406C"
             android:shadowDx="1"
@@ -104,25 +37,108 @@
             tools:layout_editor_absoluteX="167dp"
             tools:layout_editor_absoluteY="53dp" />
 
-        <TextView
-            android:id="@+id/tvPalavraSorteada"
-            android:layout_width="67dp"
-            android:layout_height="wrap_content"
-            android:text="Sorteada"
-            tools:layout_editor_absoluteX="159dp"
-            tools:layout_editor_absoluteY="107dp" />
-
         <Button
             android:id="@+id/btTeste"
-            android:layout_width="60dp"
-            android:layout_height="32dp"
-            android:text="teste" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#D31414"
+            android:fontFamily="@font/allerta"
+            android:shadowColor="#A35B5B"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="@string/adicionar"
+            app:cornerRadius="@android:dimen/thumbnail_height" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvPalavraSorteada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/palavraForca"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="107dp" />
 
         <TextView
             android:id="@+id/tvTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Timer" />
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/amaranth"
+            android:text="@string/timer"
+            android:textColor="#292E8E"
+            android:textSize="20dp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="141dp"
+            android:layout_height="407dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/forca" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="77dp"
+            android:layout_height="51dp"
+            android:layout_marginLeft="-67dp"
+            android:layout_marginTop="178dp"
+            app:srcCompat="@drawable/cabeca" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="99dp"
+            android:layout_height="115dp"
+            android:layout_marginLeft="-86.5dp"
+            android:layout_marginTop="208dp"
+            app:srcCompat="@drawable/corpo2" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="109dp"
+            android:layout_height="110dp"
+            android:layout_marginLeft="-83dp"
+            android:layout_marginTop="200dp"
+            app:srcCompat="@drawable/bracod" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="96dp"
+            android:layout_height="95dp"
+            android:layout_marginLeft="-142dp"
+            android:layout_marginTop="205.5dp"
+            app:srcCompat="@drawable/bracoee" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="75dp"
+            android:layout_height="99dp"
+            android:layout_marginLeft="-54dp"
+            android:layout_marginTop="273.5dp"
+            app:srcCompat="@drawable/ped1" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="75dp"
+            android:layout_height="99dp"
+            android:layout_marginLeft="-105dp"
+            android:layout_marginTop="273.5dp"
+            app:srcCompat="@drawable/pee1" />
 
     </TableRow>
 
