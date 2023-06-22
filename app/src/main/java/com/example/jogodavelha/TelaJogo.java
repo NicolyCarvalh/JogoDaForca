@@ -1,15 +1,20 @@
 package com.example.jogodavelha;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.drawable.TransitionDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,27 +36,30 @@ public class TelaJogo extends AppCompatActivity {
     private long tempoRestanteMs = TEMPO_TOTAL_MS;
     private Button btTeste;
     private TextView tvApelido, tvPalavraSorteada, tvTimer;
-    private ImageView ivAvatar;
+    private ImageView ivAvatar, imageView;
     private List<String> listaPalavras;
     private String palavraSorteada;
+    MediaPlayer mp;
+    private boolean isPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_jogo);
 
+        mp = MediaPlayer.create(TelaJogo.this, R.raw.musica_forca);
+        mp.start();
+
         tvApelido = findViewById(R.id.tvApelido);
         tvPalavraSorteada = findViewById(R.id.tvPalavraSorteada);
         btTeste = findViewById(R.id.btTeste);
         tvTimer = findViewById(R.id.tvTimer);
+        ivAvatar = findViewById(R.id.ivAvatar);
 
         Intent i1 = getIntent();
         String valorRecebido = i1.getStringExtra("nick");
-        tvApelido.setText(valorRecebido);
 
-        //Intent i2 = getIntent();
-        //int imagem = i2.getIntExtra("imagem", 0);
-        //ivAvatar.setImageResource(imagem);
+        tvApelido.setText(valorRecebido);
 
         listaPalavras = criarListaPalavras();
 
@@ -64,6 +72,7 @@ public class TelaJogo extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(TelaJogo.this, InserirPalavras.class);
                 startActivity(intent);
+                stopMusic();
             }
         });
 
@@ -143,5 +152,12 @@ public class TelaJogo extends AppCompatActivity {
         int index = random.nextInt(listaPalavras.size());
         return listaPalavras.get(index);
     }
-
+    private void stopMusic() {
+        if (mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
+            isPlaying = false;
+        }
+    }
 }

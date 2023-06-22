@@ -17,14 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btJogar;
     private ImageButton ibCoala, ibFlamingo, ibTouro, ibCachorro;
 
-    //MediaPlayer mp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //mp = MediaPlayer.create(MainActivity.this, R.raw.musicaJogoForca);
 
         tvJogo = findViewById(R.id.tvJogo);
         tvNick = findViewById(R.id.tvNick);
@@ -36,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         ibTouro = findViewById(R.id.ibTouro);
         ibCachorro = findViewById(R.id.ibCachorro);
 
-        //mp.start();
+
 
         ibCoala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TelaJogo.class);
-                intent.putExtra("imagem", R.drawable.coala);
+                intent.putExtra("avatar", R.drawable.coala);
             }
         });
 

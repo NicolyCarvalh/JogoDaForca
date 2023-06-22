@@ -1,5 +1,6 @@
 package com.example.jogodavelha;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class InserirPalavras extends AppCompatActivity {
     private Button btInserir;
     private EditText etNovaPalavra;
 
+    MediaPlayer mp;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inserir_palavras);
@@ -30,6 +32,9 @@ public class InserirPalavras extends AppCompatActivity {
         btInserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(InserirPalavras.this, R.raw.click);
+                mp.start();
+
                 String novaPalavra = etNovaPalavra.getText().toString();
                 //palavrasDoBanco();
                 addNovaPalavra(novaPalavra);
