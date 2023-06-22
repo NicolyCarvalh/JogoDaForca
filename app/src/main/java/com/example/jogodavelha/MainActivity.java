@@ -2,6 +2,9 @@ package com.example.jogodavelha;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText etNick;
     private Button btJogar;
     private ImageButton ibCoala, ibFlamingo, ibTouro, ibCachorro;
+
+    private ImageButton selectedImageButton;
+
+    private ImageButton selecionarImagem;
+
+    private int selectedImageResource = 0;
+    private int selectedImageId = 0;
+
+
 
     //MediaPlayer mp;
 
@@ -41,31 +53,35 @@ public class MainActivity extends AppCompatActivity {
         ibCoala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TelaJogo.class);
-                intent.putExtra("imagem", R.drawable.coala);
+                selecionarImagem(ibCoala);
+                selectedImageId = R.id.ibCoala;
             }
         });
 
         ibFlamingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                selecionarImagem(ibFlamingo);
+                selectedImageId = R.id.ibFlamingo;
             }
         });
 
         ibTouro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                selecionarImagem(ibTouro);
+                selectedImageId = R.id.ibTouro;
             }
         });
 
         ibCachorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                selecionarImagem(ibCachorro);
+                selectedImageId = R.id.ibCachorro;
             }
         });
+
         btJogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,11 +89,23 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, TelaJogo.class);
                 intent.putExtra("nick", nick);
+                if (selectedImageId != 0) {
+                    intent.putExtra("selectedImageId", selectedImageId);
+                }
                 startActivity(intent);
-
-
             }
         });
+
+    }
+
+    private void selecionarImagem(ImageButton imageButton) {
+        ibCoala.setSelected(false);
+        ibFlamingo.setSelected(false);
+        ibTouro.setSelected(false);
+        ibCachorro.setSelected(false);
+
+        // Define a imagem clicada como selecionada
+        imageButton.setSelected(true);
+        selecionarImagem = imageButton;
     }
 }
-

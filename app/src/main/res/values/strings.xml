@@ -13,6 +13,7 @@
     <string name="novaPalavra"></string>
     <string name="salvar">SALVAR</string>
     <string name="palavra">PALAVRA:</string>
+    <string name="erradas">  </string>
 
 
 </resources>
